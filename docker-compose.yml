@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  pcf.administration.webhost:
+    image: ${DOCKER_REGISTRY-}pcfadministrationwebhost
+    build:
+      context: .
+      dockerfile: Pcf.Administration.WebHost\Dockerfile
