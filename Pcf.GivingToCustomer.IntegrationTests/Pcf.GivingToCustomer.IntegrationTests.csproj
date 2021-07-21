@@ -7,23 +7,23 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="5.10.3"/>
-        <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.7"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0"/>
-        <PackageReference Include="xunit" Version="2.4.0"/>
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0"/>
+        <PackageReference Include="FluentAssertions" Version="5.10.3" />
+        <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+        <PackageReference Include="xunit" Version="2.4.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Pcf.GivingToCustomer.DataAccess\Pcf.GivingToCustomer.DataAccess.csproj"/>
-        <ProjectReference Include="..\Pcf.GivingToCustomer.WebHost\Pcf.GivingToCustomer.WebHost.csproj"/>
+        <ProjectReference Include="..\Pcf.GivingToCustomer.DataAccess\Pcf.GivingToCustomer.DataAccess.csproj" />
+        <ProjectReference Include="..\Pcf.GivingToCustomer.WebHost\Pcf.GivingToCustomer.WebHost.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Api"/>
-        <Folder Include="Components"/>
+        <Folder Include="Api" />
+        <Folder Include="Components" />
     </ItemGroup>
 
 </Project>
