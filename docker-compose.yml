@@ -1,8 +1,106 @@
-version: '3.4'
-
+version: '3.8'
 services:
-  pcf.administration.webhost:
-    image: ${DOCKER_REGISTRY-}pcfadministrationwebhost
-    build:
-      context: .
-      dockerfile: Pcf.Administration.WebHost\Dockerfile
+  #Administration Api
+  administration-api:
+    build: src/Pcf.Administration.WebHost/
+    container_name: promocode-factory-administration-api
+    restart: always
+    ports:
+      - 8091:80
+    environment:
+      - "ConnectionStrings__PromocodeFactoryAdministrationDb=Host=promocode-factory-administration-db;Database=promocode_factory_administration_db;Username=postgres;Password=docker"
+      - RabbitMQ__Url=rabbitmq://promocode-factory-rabbitmq:5672/
+      - RabbitMQ__Username=rabbit
+      - RabbitMQ__Password=docker
+    depends_on:
+      - administration-db
+      - rabbitmq
+
+  #Administration Db
+  administration-db:
+    image: postgres:12.7
+    container_name: promocode-factory-administration-db
+    restart: always
+    ports:
+      - 5433:5432
+    volumes:
+      - administration-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=docker
+
+  #ReceivingFromPartner Api
+  receiving-from-partner-api:
+    build: src/Otus.Teaching.Pcf.ReceivingFromPartner/
+    container_name: promocode-factory-receiving-from-partner-api
+    restart: always
+    ports:
+      - 8092:80
+    environment:
+      - "ConnectionStrings__PromocodeFactoryReceivingFromPartnerDb=Host=promocode-factory-receiving-from-partner-db;Database=promocode_factory_receiving_from_partner_db;Username=postgres;Password=docker"
+      - RabbitMQ__Url=rabbitmq://promocode-factory-rabbitmq:5672/
+      - RabbitMQ__Username=rabbit
+      - RabbitMQ__Password=docker
+    depends_on:
+      - receiving-from-partner-db
+      - rabbitmq
+
+  #ReceivingFromPartner Db
+  receiving-from-partner-db:
+    image: postgres:12.7
+    container_name: promocode-factory-receiving-from-partner-db
+    restart: always
+    ports:
+      - 5434:5432
+    volumes:
+      - receiving-from-partner-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=docker
+
+  #GivingToCustomer Api
+  giving-to-customer-api:
+    build: src/Otus.Teaching.Pcf.GivingToCustomer/
+    container_name: promocode-factory-giving-to-customer-api
+    restart: always
+    ports:
+      - 8093:80
+    environment:
+      - "ConnectionStrings__PromocodeFactoryGivingToCustomerDb=Host=promocode-factory-giving-to-customer-db;Database=promocode_factory_giving_to_customer_db;Username=postgres;Password=docker"
+      - RabbitMQ__Url=rabbitmq://promocode-factory-rabbitmq:5672/
+      - RabbitMQ__Username=rabbit
+      - RabbitMQ__Password=docker
+    depends_on:
+      - giving-to-customer-db
+      - rabbitmq
+
+  #GivingToCustomer Db
+  giving-to-customer-db:
+    image: postgres:12.7
+    container_name: promocode-factory-giving-to-customer-db
+    restart: always
+    ports:
+      - 5435:5432
+    volumes:
+      - giving-to-customer-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=docker
+
+  #RabbitMQ
+  rabbitmq:
+    image: masstransit/rabbitmq:3
+    container_name: promocode-factory-rabbitmq
+    #restart: always
+    hostname: promocode-factory-rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=docker
+
+volumes:
+  administration-db-data:
+  receiving-from-partner-db-data:
+  giving-to-customer-db-data:
+  rabbitmq-data:
