@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
-  <PropertyGroup Label="Globals">
-    <ProjectVersion>2.1</ProjectVersion>
-    <DockerTargetOS>Windows</DockerTargetOS>
-    <ProjectGuid>db912631-f5f1-4a14-90ef-74f1fe7e2bbf</ProjectGuid>
-    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://{ServiceIPAddress}{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>pcf.administration.webhost</DockerServiceName>
-  </PropertyGroup>
+    <PropertyGroup Label="Globals">
+        <ProjectVersion>2.1</ProjectVersion>
+        <DockerTargetOS>Windows</DockerTargetOS>
+        <ProjectGuid>db912631-f5f1-4a14-90ef-74f1fe7e2bbf</ProjectGuid>
+    </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.yml" />
-    <None Include=".dockerignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".dockerignore" />
   </ItemGroup>
 </Project>
