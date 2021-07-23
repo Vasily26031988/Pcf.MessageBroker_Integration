@@ -2,7 +2,7 @@ version: '3.8'
 services:
   #Administration Api
   administration-api:
-    build: src/Pcf.Administration.WebHost/
+    image: promocode-factory-administration-api
     container_name: promocode-factory-administration-api
     restart: always
     ports:
@@ -30,7 +30,7 @@ services:
 
   #ReceivingFromPartner Api
   receiving-from-partner-api:
-    build: src/Otus.Teaching.Pcf.ReceivingFromPartner/
+    image: promocode-factory-receiving-from-partner-api
     container_name: promocode-factory-receiving-from-partner-api
     restart: always
     ports:
@@ -58,7 +58,7 @@ services:
 
   #GivingToCustomer Api
   giving-to-customer-api:
-    build: src/Otus.Teaching.Pcf.GivingToCustomer/
+    image: promocode-factory-giving-to-customer-api
     container_name: promocode-factory-giving-to-customer-api
     restart: always
     ports:

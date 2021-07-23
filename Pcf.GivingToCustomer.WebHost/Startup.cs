@@ -88,7 +88,7 @@ namespace Pcf.GivingToCustomer.WebHost
                 x.DocExpansion = "list";
             });
             
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
