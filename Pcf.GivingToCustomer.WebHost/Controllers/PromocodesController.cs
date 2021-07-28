@@ -70,7 +70,7 @@ namespace Pcf.GivingToCustomer.WebHost.Controllers
             if (promoCode == null)
                 return BadRequest();
 
-            return CreatedAtAction(nameof(GetPromocodesAsync), new {}, null);
+            return CreatedAtAction(nameof(GetPromocodesAsync), new { }, null);
         }
-    }
+   }
 }

@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using Pcf.ReceivingFromPartner.WebHost.Models;
 using Pcf.ReceivingFromPartner.Core.Abstractions.Gateways;
 using Pcf.ReceivingFromPartner.Core.Abstractions.Repositories;
 using Pcf.ReceivingFromPartner.Core.Domain;
-using Pcf.ReceivingFromPartner.WebHost.EventContracts;
+using Pcf.ReceivingFromPartner.Core.EventContracts;
 using Pcf.ReceivingFromPartner.WebHost.Mappers;
-using Pcf.ReceivingFromPartner.WebHost.Models;
 
 namespace Pcf.ReceivingFromPartner.WebHost.Controllers
 {

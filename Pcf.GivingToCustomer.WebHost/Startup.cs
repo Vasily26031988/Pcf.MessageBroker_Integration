@@ -20,7 +20,7 @@ using Pcf.GivingToCustomer.WebHost.EventConsumers;
 
 namespace Pcf.GivingToCustomer.WebHost
 {
-    public class Startup
+     public class Startup
     {
         public IConfiguration Configuration { get; }
 
@@ -88,7 +88,7 @@ namespace Pcf.GivingToCustomer.WebHost
                 x.DocExpansion = "list";
             });
             
-            // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

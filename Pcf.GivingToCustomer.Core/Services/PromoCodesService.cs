@@ -8,9 +8,10 @@ using Pcf.GivingToCustomer.Core.Abstractions.EventContracts;
 using Pcf.GivingToCustomer.Core.Abstractions.Repositories;
 using Pcf.GivingToCustomer.Core.Domain;
 
+
 namespace Pcf.GivingToCustomer.Core.Services
 {
-   public class PromoCodesService
+     public class PromoCodesService
     {
         private readonly IRepository<PromoCode> _promoCodeRepository;
         private readonly IRepository<Customer> _customerRepository;

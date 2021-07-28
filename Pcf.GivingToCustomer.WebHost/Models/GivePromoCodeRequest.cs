@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Pcf.GivingToCustomer.Core.Abstractions.EventContracts;
 
+
 namespace Pcf.GivingToCustomer.WebHost.Models
 {
     public class GivePromoCodeRequest : IReceivePromoCodeEvent
